@@ -25,10 +25,7 @@ console.log(typeof length);
 // test if length is retrievable as a number
 console.log("Length is " + length);
 
-// WHEN prompted for character types to include in the password
-// THEN I choose lowercase
-// THEN my input should be validated and at least one character type should be selected
-
+// WHEN prompted for character types to include in the password THEN I choose lowercase THEN my input should be validated and at least one character type should be selected
 var lowerCaseLetters = function () {
   var lowerCaseList = "";
   // Using regular expression to dictate that only lower case letters will be accepted
@@ -44,9 +41,7 @@ console.log("The lower case letter string is " + lowerCaseLetterString)
 
 // Readjusting the number in the length prompt
 var lengthPostLower = length - lowerCaseLetterString.length
-// WHEN prompted for character types to include in the password
-// THEN I choose uppercase
-// THEN my input should be validated and at least one character type should be selected
+// WHEN prompted for character types to include in the password THEN I choose uppercase THEN my input should be validated and at least one character type should be selected
 var upperCaseLetters = function () {
   var upperCaseList = "";
   
@@ -59,9 +54,9 @@ var upperCaseLetters = function () {
 
 var upperCaseLetterString = upperCaseLetters();
 console.log("The upper case letter string is " + upperCaseLetterString)
-// WHEN prompted for character types to include in the password
-// THEN I choose numeric
-// THEN my input should be validated and at least one character type should be selected
+// WHEN prompted for character types to include in the password THEN I choose numeric THEN my input should be validated and at least one character type should be selected
+
+// Readjusting length for post uppercase letter
 var lengthPostUpper = lengthPostLower - upperCaseLetterString.length;
 
 var numbers = function () {
@@ -76,6 +71,7 @@ var numbers = function () {
   
 var numberString = numbers();
 console.log("The lower case letter string is " + numberString)
+
 
 // WHEN prompted for character types to include in the password
 // THEN I choose special characters
