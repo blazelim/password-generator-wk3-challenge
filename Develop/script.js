@@ -51,7 +51,7 @@ var upperCaseLetters = function () {
   var upperCaseList = "";
   
   while (!/[^A-Z]/.test(upperCaseList) === false || upperCaseList === ""){
-      upperCaseList = window.prompt("Which uppercase letters would you like included in your password? Please input ONLY uppercase letters. You may input up to " + (lengthPostLower - 2) + " characters.");
+      upperCaseList = window.prompt("Which uppercase letters would you like included in your password? Please input ONLY uppercase letters. You may input up to " + (lengthPostLower - 2) + " characters. Repeats are allowed. At least 1 character required.");
   };
   console.log("The upper case string is " + upperCaseList);
   return upperCaseList;
@@ -62,7 +62,20 @@ console.log("The upper case letter string is " + upperCaseLetterString)
 // WHEN prompted for character types to include in the password
 // THEN I choose numeric
 // THEN my input should be validated and at least one character type should be selected
-var confirmNumeric = window.prompt("Which numbers be included in your password?");
+var lengthPostUpper = lengthPostLower - upperCaseLetterString.length;
+
+var numbers = function () {
+    var numberList = "";
+    // Using regular expression to dictate that only lower case letters will be accepted
+    while (!/[^0-9]/.test(numberList) === false || numberList === ""){
+        numberList = window.prompt("Which numbers would you like included in your password? Please input ONLY numbers. You may input up to " + (lengthPostUpper - 1) + " characters. Repeats are allowed. At least 1 number required.");
+    };
+    console.log("The lower case string is " + numberList);
+    return numberList;
+}
+  
+var numberString = numbers();
+console.log("The lower case letter string is " + numberString)
 
 // WHEN prompted for character types to include in the password
 // THEN I choose special characters
