@@ -32,7 +32,7 @@ console.log("Length is " + length);
 var lowerCaseLetters = function () {
   var lowerCaseList = "";
   // Using regular expression to dictate that only lower case letters will be accepted
-  while (!/[^a-z]/.test(lowerCaseList) === false || lowerCaseList === ""){
+  while (!/[^a-z]/.test(lowerCaseList) === false || lowerCaseList === "" || lowerCaseList.length > length - 3){
       lowerCaseList = window.prompt("Which lowercase letters would you like included in your password? Please input ONLY lowercase letters. You may input up to " + (length - 3) + " characters. Repeats are allowed. At least 1 character required.");
   };
   console.log("The lower case string is " + lowerCaseList);
@@ -50,7 +50,7 @@ var lengthPostLower = length - lowerCaseLetterString.length
 var upperCaseLetters = function () {
   var upperCaseList = "";
   
-  while (!/[^A-Z]/.test(upperCaseList) === false || upperCaseList === ""){
+  while (!/[^A-Z]/.test(upperCaseList) === false || upperCaseList === "" || upperCaseList.length > lengthPostLower - 2){
       upperCaseList = window.prompt("Which uppercase letters would you like included in your password? Please input ONLY uppercase letters. You may input up to " + (lengthPostLower - 2) + " characters. Repeats are allowed. At least 1 character required.");
   };
   console.log("The upper case string is " + upperCaseList);
@@ -67,7 +67,7 @@ var lengthPostUpper = lengthPostLower - upperCaseLetterString.length;
 var numbers = function () {
     var numberList = "";
     // Using regular expression to dictate that only lower case letters will be accepted
-    while (!/[^0-9]/.test(numberList) === false || numberList === ""){
+    while (!/[^0-9]/.test(numberList) === false || numberList === "" || numberList.length > lengthPostUpper -1){
         numberList = window.prompt("Which numbers would you like included in your password? Please input ONLY numbers. You may input up to " + (lengthPostUpper - 1) + " characters. Repeats are allowed. At least 1 number required.");
     };
     console.log("The lower case string is " + numberList);
