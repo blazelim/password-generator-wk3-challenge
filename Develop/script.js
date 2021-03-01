@@ -51,7 +51,7 @@ var upperCaseLetters = function () {
   var upperCaseList = "";
   
   while (!/[^A-Z]/.test(upperCaseList) === false || upperCaseList === ""){
-      upperCaseList = window.prompt("Which uppercase letters would you like included in your password? Please input ONLY lowercase letters. You may input up to " + (lengthPostLower - 2) + " characters.");
+      upperCaseList = window.prompt("Which uppercase letters would you like included in your password? Please input ONLY uppercase letters. You may input up to " + (lengthPostLower - 2) + " characters.");
   };
   console.log("The upper case string is " + upperCaseList);
   return upperCaseList;
