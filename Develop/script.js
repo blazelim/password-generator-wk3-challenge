@@ -107,9 +107,9 @@ function Randomizer(passwordLength) {
   return Math.floor(Math.random()*passwordLength);
 }
 
-function shuffler(passwordCharacterList) {
-  var passwordArray = passwordCharacterList.split('');
-  var passwordLength = passwordCharacterList.length;
+function shuffler(passwordCharacterListInput) {
+  var passwordArray = passwordCharacterListInput.split('');
+  var passwordLength = passwordCharacterListInput.length;
 
   for(var i=0; i<passwordLength - 1 ; i++) {
     var newPosition = Randomizer(passwordLength);
@@ -123,23 +123,11 @@ function shuffler(passwordCharacterList) {
   return shuffledPassword;
 }
 
-// TODO: connect passwordCharacterList to the previous character selection prompts
-//var passwordCharacterList = "ThisStringIsJustaTestToSeeIfTheRandomizerWorks"
-
-//connecting the strings so they can be shuffled
-passwordCharacterList = lowerCaseLetterString.concat()
-
-finalPassword = shuffler(passwordCharacterList);
-
+var finalPassword = shuffler(passwordCharacterList);
 console.log(finalPassword);
-
-
 
 // WHEN the password is generated
 // THEN the password is either displayed in an alert or written to the page
-
-
-
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
