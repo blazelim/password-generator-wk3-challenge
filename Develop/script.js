@@ -61,7 +61,7 @@ var lengthPostUpper = lengthPostLower - upperCaseLetterString.length;
 
 var numbers = function () {
     var numberList = "";
-    // Using regular expression to dictate that only lower case letters will be accepted
+    // Using regular expression to dictate that only numbers will be accepted
     while (!/[^0-9]/.test(numberList) === false || numberList === "" || numberList.length > lengthPostUpper -1){
         numberList = window.prompt("Which numbers would you like included in your password? Please input ONLY numbers. You may input up to " + (lengthPostUpper - 1) + " characters. Repeats are allowed. At least 1 number required.");
     };
@@ -72,15 +72,37 @@ var numbers = function () {
 var numberString = numbers();
 console.log("The lower case letter string is " + numberString)
 
+// Readjusting length for post number string
+var lengthPostNumber = lengthPostUpper - numberString.length;
 
-// WHEN prompted for character types to include in the password
-// THEN I choose special characters
-// THEN my input should be validated and at least one character type should be selected
-var confirmSpecial = window.prompt("Which special characters be included in your password?");
 
-// WHEN all prompts are answered
-// THEN a password is generated that matches the selected criteria
-// Randomize selected characters to prevent the issue of a string of lowercase -> Uppercase -> Numbers -> special characters
+// WHEN prompted for character types to include in the password THEN I choose special characters THEN my input should be validated and at least one character type should be selected
+var specials = function () {
+  var specialList = "";
+  // Using regular expression to dictate that only certain special characters will be accepted
+  while (/^[-!"#$%&'()*+,./:;<=>?@^_` {|}~]/.test(specialList) === false || specialList === "" || specialList.length != lengthPostNumber ){
+      specialList = window.prompt("Which special characters would you like included in your password? Please input ONLY '-!#$%&'()*+,./:;<=>?@^_`{| }~'. Input exactly " + lengthPostNumber + " characters. Repeats are allowed.");
+  };
+  console.log("The specials string is " + specialList);
+  return specialList;
+}
+
+var specialString = specials();
+console.log("The specials string is " + specialString)
+
+// Readjusting length for post number string
+var lengthPostSpecials = lengthPostNumber - specialString.length;
+
+// confirming zero
+console.log(lengthPostSpecials);
+
+// combining all of the above strings
+
+var passwordCharacterList = lowerCaseLetterString.concat(upperCaseLetterString,numberString,specialString);
+console.log(passwordCharacterList);
+
+// WHEN all prompts are answered THEN a password is generated that matches the selected criteria
+// Randomize selected characters to prevent the issue of a generic string of lowercase -> Uppercase -> Numbers -> special characters
 function Randomizer(passwordLength) {
   return Math.floor(Math.random()*passwordLength);
 }
